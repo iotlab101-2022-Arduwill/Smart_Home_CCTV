@@ -91,14 +91,8 @@ void setup() {
     attachInterrupt(pulseA, handleRotary, CHANGE);
     attachInterrupt(pulseB, handleRotary, CHANGE);
 
-
-
     pinMode(trigPin, OUTPUT);
     pinMode(echoPin, INPUT);
-
-
-
-
 
     Serial.begin(115200);
     WiFi.mode(WIFI_STA); 
@@ -165,9 +159,6 @@ void loop() {
         Serial.printf("Duration = %6ld, Distance = %6.2fcm\n", duration, distance);
         //delay(1000);
     }
-
-
-    
 }
 
 
@@ -181,36 +172,18 @@ void readDHT22() {
         humidity = dht.getHumidity();              // Read humidity (percent)
         temperature = dht.getTemperature();        // Read temperature as Fahrenheit
 
-       
-
-
-
         display.clear();
     
         String buff1 = String(humidity);
         display.drawString(0, 0, buff1);
     
-  
         String buff2 = String(temperature);
         display.drawString(0, 10, buff2);
-    
-
-    
 
         String buff3 = String(encoderValue);
         display.drawString(0, 20, buff3);
 
-
-       
-
-
-        display.display();
-
-
-
-
-
-        
+        display.display();       
     }
 }
 
